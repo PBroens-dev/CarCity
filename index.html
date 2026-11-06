@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CarCity</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Import Map for Three.js and Cannon-es Physics -->
+    <script type="importmap">
+        {
+            "imports": {
+                "three": "https://unpkg.com/three@0.160.0/build/three.module.js",
+                "cannon-es": "https://unpkg.com/cannon-es@0.20.0/dist/cannon-es.js"
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="ui">
+        <div id="controls-hint">
+            <h2>CarCity, an open-world drive simulator.</h2>
+            <p><b>Click screen</b> to lock mouse</p>
+            <p><b>W, A, S, D</b> : Drive / Walk</p>
+            <p><b>SPACE</b> : Handbrake / Jump</p>
+            <p><b>SHIFT</b> : Sprint (On Foot)</p>
+            <p><b>F</b> : Enter / Exit Vehicle</p>
+        </div>
+        <div id="interaction-prompt" class="hidden">Press <b>[F]</b> to Enter Vehicle</div>
+        <div id="hud">
+            <div id="mode-indicator">MODE: ON FOOT</div>
+            <div id="speedometer" class="hidden"><span id="speed">0</span> MPH</div>
+        </div>
+    </div>
+
+    <script type="module" src="main.js"></script>
+</body>
+</html>

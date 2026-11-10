@@ -141,12 +141,12 @@ export class Vehicle {
             const brakeForce = 65;
 
             let engineForce = 0;
-            if (keys.w) engineForce = maxForce;
-            if (keys.s) engineForce = -maxForce * 0.7;
+            if (keys.w) engineForce = -maxForce;
+            if (keys.s) engineForce = maxForce * 0.7;
 
             let steer = 0;
-            if (keys.a) steer = maxSteerVal;
-            if (keys.d) steer = -maxSteerVal;
+            if (keys.a) steer = -maxSteerVal;
+            if (keys.d) steer = maxSteerVal;
 
             // Apply Rear-Wheel Drive & Front Steering
             this.vehicle.applyEngineForce(engineForce, 2);

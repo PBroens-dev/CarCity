@@ -90,8 +90,8 @@ export class Player {
         const right = new THREE.Vector3(Math.cos(this.yaw), 0, -Math.sin(this.yaw)).normalize();
 
         const moveDir = new THREE.Vector3();
-        if (keys.w) moveDir.sub(forward);
-        if (keys.s) moveDir.add(forward);
+        if (keys.w) moveDir.add(forward);
+        if (keys.s) moveDir.sub(forward);
         if (keys.d) moveDir.add(right);
         if (keys.a) moveDir.sub(right);
 

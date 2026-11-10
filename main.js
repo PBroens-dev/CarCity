@@ -130,7 +130,8 @@ function animate() {
             promptEl.classList.add('hidden');
         }
     } else {
-        // Smooth Chase Camera for Car
+        // Chase from behind the car. The vehicle's front points along local +Z,
+        // so the rear camera offset is local -Z.
         const carPos = playerCar.chassisMesh.position;
         const carQuat = playerCar.chassisMesh.quaternion;
 
@@ -138,11 +139,12 @@ function animate() {
         idealOffset.applyQuaternion(carQuat);
         idealOffset.add(carPos);
 
-        const idealLookAt = new THREE.Vector3(0, 1.0, 6.0);
+        // Look slightly ahead of the car so its rear remains visible in frame.
+        const idealLookAt = new THREE.Vector3(0, 1.0, 3.0);
         idealLookAt.applyQuaternion(carQuat);
         idealLookAt.add(carPos);
 
-        camera.position.lerp(idealOffset, dt * 8);
+        camera.position.lerp(idealOffset, Math.min(1, dt * 8));
         camera.lookAt(idealLookAt);
 
         // Update Speedometer (m/s to MPH)
